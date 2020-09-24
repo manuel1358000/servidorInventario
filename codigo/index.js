@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3001;
+const port = 3000;
 const bodyParser = require('body-parser');
 var conexionbd = require('./src/conexiondb/conexion.js');
 const { Usuario, Producto, Sucursal, DetalleProducto} = require('./sequelize/sequelize');
