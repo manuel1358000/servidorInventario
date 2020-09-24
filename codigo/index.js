@@ -194,13 +194,11 @@ app.post('/crearExistencia',async(req,res)=>{
 
 //obtener listado de cantidad de existencias
 app.get('/obtenerExistencias',async(req,res)=>{
-    if (!req.query.hasOwnProperty('idProducto')||!req.query.hasOwnProperty('idSucursal')||!req.query.hasOwnProperty('indice')) {
+    if (!req.query.hasOwnProperty('idProducto')||!req.query.hasOwnProperty('idSucursal')) {
         res.status(400).json({ 'estado': false, 'mensaje': 'Ocurrio un error al obtener el recurso' });
         return;
     }else{
         DetalleProducto.findAll({
-            limit: 10,
-            offset: parseInt(req.query.indice),
             attributes: ['cantidad','idProducto','idSucursal','updatedAt','id'],
             where:{
                 idProducto: req.query.idProducto,
