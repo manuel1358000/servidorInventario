@@ -141,7 +141,7 @@ app.get('/listadoProductos', async(req, res) => {
             limit: 10,
             offset: parseInt(req.query.indice),
             attributes: ['idProducto', 'codigoGenerado','nombre','unidadMedida'],
-        }).then(producto => {
+	}).then(producto => {
             res.status(200).json({ 'estado': true, data: producto });
             return;
         }).catch((error) => {
